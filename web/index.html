@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Garage</title>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-w+8Gqjk9Cuo6XH9HKHG5t5I1VR4YBNdPt/29vwgfZR485eoEJZ8rJRbm3TR32P6k" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/opium.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="errors"></div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <div class="card-header">Прожектор двор</div>
+                    <div class="card-body">
+                        <button class="btn btn-secondary" id="addback">+30 сек</button>
+                        <button class="btn btn-secondary" id="back">?</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <div class="card-header">Состояние</div>
+                    <div class="card-body">
+                        <table>
+                            <tr>
+                                <td style="width:100px">Ворота</td>
+                                <td><span id="gate" class="badge"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Дверь</td>
+                                <td><span id="door" class="badge"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Освещенность</td>
+                                <td><span id="lsens" class="badge badge-secondary"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Вечер</td>
+                                <td><span id="time_start" class="badge badge-secondary"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Утро</td>
+                                <td><span id="time_end" class="badge badge-secondary"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <div class="card-header">Свет</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <button class="btn btn-secondary" id="light">?</button>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <div class="col-4"><input class="form-check-input" type="checkbox" id="l1"></div>
+                            <div class="col-4"><input class="form-check-input" type="checkbox" id="l2"></div>
+                            <div class="col-4"><input class="form-check-input" type="checkbox" id="l3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <div class="card-header">Прожектор дорога</div>
+                    <div class="card-body">
+                        <button class="btn btn-secondary" id="fore">?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

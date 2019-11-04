@@ -1,0 +1,18 @@
+[Unit]
+Description=Garage
+After=syslog.target network.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+StandardInput=tty-force
+WorkingDirectory=/home/opi/service
+ExecStart=/usr/bin/python /home/opi/service/garage.py 
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+

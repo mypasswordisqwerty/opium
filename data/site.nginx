@@ -1,0 +1,16 @@
+server{
+    listen 	80;
+    server_name	default;
+    root	/home/opi/service/web;
+    index	index.html;
+    error_log   /home/opi/logs/nginx.log;
+
+    location / {
+	index index.html;
+    }
+
+    location /q {
+	scgi_pass	127.0.0.1:4000;
+	include 	scgi_params;
+    }
+}

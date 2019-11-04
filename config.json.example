@@ -1,0 +1,10 @@
+{
+    "time_start": "18:06", 
+    "light": 5, 
+    "time_end": "07:01", 
+    "longitude": 0, 
+    "latitude": 0, 
+    "lsens": 1000, 
+    "expander": true
+    "scgi_port": 4000, 
+}
