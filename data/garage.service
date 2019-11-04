@@ -9,7 +9,7 @@ User=root
 Group=root
 StandardInput=tty-force
 WorkingDirectory=/home/opi/service
-ExecStart=/usr/bin/python /home/opi/service/garage.py 
+ExecStart=/usr/bin/python3 /home/opi/service/garage.py 
 StandardOutput=syslog
 StandardError=syslog
 
