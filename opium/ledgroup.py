@@ -1,6 +1,6 @@
-from led import Led
-from base import Base
-from app import AppData
+from .led import Led
+from .base import Base
+from .app import AppData
 
 
 class LedGroup(Base):

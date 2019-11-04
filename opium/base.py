@@ -1,4 +1,4 @@
-from app import AppData
+from .app import AppData
 
 
 class Base:

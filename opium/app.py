@@ -1,16 +1,15 @@
-from gpio import GPIO
-from expander import Expander
-from singleton import Singleton
+from .gpio import GPIO
+from .expander import Expander
+from .singleton import Singleton
 import time
 from multiprocessing import Process, Pipe
-import SCGIServer
-from config import Config
+from . import SCGIServer
+from .config import Config
 
 
-class AppData:
+class AppData(metaclass=Singleton):
     DEF_TIMEOUT = 0.01
     CONF_RELOAD = 60*60*24
-    __metaclass__ = Singleton
 
     def __init__(self):
         self.objs = []

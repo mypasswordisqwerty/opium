@@ -1,10 +1,9 @@
-from singleton import Singleton
+from .singleton import Singleton
 import os
 import json
 
 
-class Config:
-    __metaclass__ = Singleton
+class Config(metaclass=Singleton):
 
     def __init__(self):
         self.file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "config.json"))

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import time
 import sys
 from opium import App, Led, Button, LedGroup, Config, Pin, Sensor

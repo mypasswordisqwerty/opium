@@ -1,4 +1,4 @@
-from singleton import Singleton
+from .singleton import Singleton
 import logging
 try:
     from pyA20.gpio import gpio as G
@@ -7,15 +7,14 @@ except:
     EMU = True
 
 
-class GPIO:
-    __metaclass__ = Singleton
+class GPIO(metaclass=Singleton):
 
     def __init__(self):
         self.expander = None
         self.expin = 999
         if EMU:
             self.state = {}
-            print "gpio emulator enabled"
+            print("gpio emulator enabled")
         else:
             G.init()
 
@@ -25,7 +24,7 @@ class GPIO:
 
     def setcfg(self, pin, mode):
         if EMU:
-            print "PIN", pin, ": mode", mode
+            print(f"PIN {pin}: mode {mode}")
             self.state[pin] = {'mode': mode, 'val': 0}
             return
         if pin > self.expin:
@@ -34,7 +33,7 @@ class GPIO:
 
     def pullup(self, pin, mode):
         if EMU:
-            print "PIN", pin, ": pullup", mode
+            print(f"PIN {pin}: pullup {mode}")
             return
         if pin > self.expin:
             self.expander.pullup(pin, mode)
@@ -51,7 +50,7 @@ class GPIO:
 
     def output(self, pin, val):
         if EMU:
-            print "PIN", pin, ": write", val
+            print(f"PIN {pin}: write {val}")
             self.state[pin]['val'] = val
             return
         if pin > self.expin:
@@ -68,7 +67,7 @@ class GPIO:
 
     def aOutput(self, pin, val):
         if EMU:
-            print "PIN", pin, ": write", val
+            print(f"PIN {pin}: write {val}")
             self.state[pin]['val'] = val
             return
         if pin > self.expin:

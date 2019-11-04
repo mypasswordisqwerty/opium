@@ -1,5 +1,5 @@
-from pin import Pin
-from app import AppData
+from .pin import Pin
+from .app import AppData
 
 
 class Button(Pin):

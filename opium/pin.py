@@ -1,6 +1,6 @@
-from gpio import GPIO
-from app import AppData
-from base import Base
+from .gpio import GPIO
+from .app import AppData
+from .base import Base
 
 
 class Pin(Base):
