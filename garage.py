@@ -12,10 +12,10 @@ class MyApp(App):
 
     def __init__(self):
         App.__init__(self)
-        self.gate = Button(13).onChange(self.keyChange)
-        self.door = Button(14).onChange(self.keyChange)
+        self.gate = Button(18).onChange(self.keyChange)
+        self.door = Button(19).onChange(self.keyChange)
         self.fore = LedGroup([6], 1, Led(7))
-        self.back = Led(2)
+        self.back = Led(13)
         self.light = LedGroup([1, 0, 3], Config().get('light'), Led(8))
         self.gateBtn = Button(9).onChange(self.onBtn)
         self.doorBtn = Button(10).onChange(self.onBtn).onLongPress(3, self.makeConf)
