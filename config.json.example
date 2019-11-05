@@ -6,5 +6,5 @@
     "latitude": 0, 
     "lsens": 1000, 
     "expander": true
-    "scgi_port": 4000, 
+    "fcgi_port": 4000, 
 }

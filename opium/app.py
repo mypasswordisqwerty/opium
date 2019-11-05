@@ -3,7 +3,7 @@ from .expander import Expander
 from .singleton import Singleton
 import time
 from multiprocessing import Process, Pipe
-from . import SCGIServer
+from . import FCGIServer
 from .config import Config
 
 
@@ -40,10 +40,10 @@ class App:
         return True
 
     def run(self):
-        port = Config().get('scgi_port', 4000)
+        port = Config().get('fcgi_port', 4000)
         if port != 0:
             self.pipe, rempipe = Pipe()
-            proc = Process(target=SCGIServer.serve, args=(rempipe, port))
+            proc = Process(target=FCGIServer.serve, args=(rempipe, port))
             proc.daemon = True
             proc.start()
         conf_reload = AppData().conf_reload

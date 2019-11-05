@@ -6,11 +6,11 @@ server{
     error_log   /home/opi/logs/nginx.log;
 
     location / {
-	index index.html;
+	   index index.html;
     }
 
     location /q {
-	scgi_pass	127.0.0.1:4000;
-	include 	scgi_params;
+	   fastcgi_pass    127.0.0.1:4000;
+	   include 	fastcgi_params;
     }
 }
