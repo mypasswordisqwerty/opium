@@ -1,4 +1,5 @@
 from .pin import Pin
+from .app import AppData
 
 
 class Gate(Pin):
