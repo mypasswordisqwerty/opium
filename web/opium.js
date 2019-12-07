@@ -51,6 +51,7 @@ $(() => {
         $("#door").removeClass("badge-success badge-danger").addClass(json.door ? 'badge-success' : 'badge-danger');
         $("#gate").text(json.gate ? 'Закрыто' : 'Открыто')
         $("#gate").removeClass("badge-success badge-danger").addClass(json.gate ? 'badge-success' : 'badge-danger');
+        $("#gateo,#gatep").prop('disabled', !json.gates);
         $("#lsens").text(json.lsens);
         if (json.time_start) {
             $("#time_start").text(json.time_start);

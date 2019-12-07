@@ -9,6 +9,7 @@ class MyApp(App):
     CONF_TIME = 5
     FORE_TIME = 5*60
     BACK_TIME = 30
+    PREOPEN_TIME = 7
 
     def __init__(self):
         App.__init__(self)
@@ -94,12 +95,15 @@ class MyApp(App):
             self.backtime = 0
         if 'gateo' in pack:
             self.gates.click()
+        if 'gatep' in pack:
+            self.gates.preopen(self.PREOPEN_TIME)
         if 'addback' in pack:
             self.addBack(None)
         ret = {'fore': self.fore.state, 'light': self.light.state,
                'conf': self.light.conf, 'door': self.door.state, 'gate': self.gate.state,
                'lsens': self.lsens.value if self.lsens else 'OFF',
-               'back': self.back.state, 'backtime': int(self.backtime)
+               'back': self.back.state, 'backtime': int(self.backtime),
+               'gates': self.gates.ready()
                }
         if "getconf" in pack:
             ret['time_start'] = Config().get('time_start')
