@@ -4,21 +4,19 @@ from .app import AppData
 
 class Gate(Pin):
     PRESS_TIME = 0.5
-    PREOPEN_CL = 1
 
     def __init__(self, pin):
         Pin.__init__(self, pin, self.OUTPUT)
         self.timeout = AppData().timeout
         self.time = 0
-        self._preopen = 0
-        self._preopencl = 0
+        self.clicks = []
         self._ready = True
 
     def ready(self):
         return self._ready
 
     def preopen(self, time):
-        self._preopen = time
+        self.clicks = [time, 1, 1]
         self.click()
 
     def click(self):
@@ -32,17 +30,11 @@ class Gate(Pin):
             if self.time <= 0:
                 self.time = 0
                 self.write(self.LOW)
-                self._ready = (self.preopen == 0 and self.preopencl == 0)
-        elif self._preopen > 0:
-            self._preopen -= self.timeout
-            if self._preopen <= 0:
-                self._preopen = 0
-                self._preopencl = self.PREOPEN_CL
-                self.click()
-        elif self._preopencl > 0:
-            self._preopencl -= self.timeout
-            if self._preopencl <= 0:
-                self._preopencl = 0
+                self._ready = len(self.clicks) == 0
+        elif len(self.clicks) > 0:
+            self.clicks[0] -= self.timeout
+            if self.clicks[0] <= 0:
+                self.clicks = self.clicks[1:]
                 self.click()
         elif not self._ready:
             self.write(self.LOW)
