@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import time
 import sys
-from opium import App, Led, Button, LedGroup, Config, Pin, Sensor
+from opium import App, Led, Button, LedGroup, Config, Pin, Sensor, Gate
 import datetime
 
 
@@ -21,6 +21,7 @@ class MyApp(App):
         self.doorBtn = Button(10).onChange(self.onBtn).onLongPress(3, self.makeConf)
         self.backBtn = Button(20).onChange(self.addBack)
         self.lsens = Sensor(1005) if self.hasExpander() else None
+        self.gates = Gate(68)
         self.conftime = 0
         self.foretime = 0
         self.backtime = 0
@@ -91,6 +92,8 @@ class MyApp(App):
         if 'back' in pack:
             self.back.switch()
             self.backtime = 0
+        if 'gateo' in pack:
+            self.gates.click()
         if 'addback' in pack:
             self.addBack(None)
         ret = {'fore': self.fore.state, 'light': self.light.state,

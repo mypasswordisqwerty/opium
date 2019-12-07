@@ -77,6 +77,12 @@ $(() => {
     $("#back").click(() => {
         call({ back: 1 }, updState);
     });
+    $("#gateo").click(() => {
+        call({ gateo: 1 }, updState);
+    });
+    $("#gatep").click(() => {
+        call({ gatep: 1 }, updState);
+    });
 
     $("#light").click(() => {
         call({ light: 1 }, updState);
